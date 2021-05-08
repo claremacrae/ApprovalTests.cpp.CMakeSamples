@@ -25,29 +25,29 @@ jobs:
             cxx-compiler: 'clang++-9'
             generator: '"Unix Makefiles"'
 
-          - job-name: 'clang10'
-            os-version: '20.04'
-            c-compiler: 'clang-10'
-            cxx-compiler: 'clang++-10'
-            generator: '"Unix Makefiles"'
+#          - job-name: 'clang10'
+#            os-version: '20.04'
+#            c-compiler: 'clang-10'
+#            cxx-compiler: 'clang++-10'
+#            generator: '"Unix Makefiles"'
 
-          - job-name: 'clang11'
-            os-version: '20.04'
-            c-compiler: 'clang-11'
-            cxx-compiler: 'clang++-11'
-            generator: '"Unix Makefiles"'
+#          - job-name: 'clang11'
+#            os-version: '20.04'
+#            c-compiler: 'clang-11'
+#            cxx-compiler: 'clang++-11'
+#            generator: '"Unix Makefiles"'
 
-          - job-name: 'gcc9'
-            os-version: '20.04'
-            c-compiler: 'gcc-9'
-            cxx-compiler: 'g++-9'
-            generator: '"Unix Makefiles"'
+#          - job-name: 'gcc9'
+#            os-version: '20.04'
+#            c-compiler: 'gcc-9'
+#            cxx-compiler: 'g++-9'
+#            generator: '"Unix Makefiles"'
 
-          - job-name: 'gcc10'
-            os-version: '20.04'
-            c-compiler: 'gcc-10'
-            cxx-compiler: 'g++-10'
-            generator: '"Unix Makefiles"'
+#          - job-name: 'gcc10'
+#            os-version: '20.04'
+#            c-compiler: 'gcc-10'
+#            cxx-compiler: 'g++-10'
+#            generator: '"Unix Makefiles"'
 
 # See #4
 #          - job-name: 'gcc10 unity'
@@ -129,7 +129,7 @@ jobs:
           ./build.sh
 
   macOS:
-    # if: false # Disable this platform temporarily
+    if: false # Disable this platform temporarily
     runs-on: macos-${{ matrix.os-version }}
     strategy:
       fail-fast: false
@@ -217,7 +217,7 @@ jobs:
           ./build.sh
 
   Windows:
-    # if: false # Disable windows builds, due to path length errors
+    if: false # Disable windows builds, due to path length errors
     runs-on: windows-${{ matrix.os-version }}
     strategy:
       fail-fast: false
