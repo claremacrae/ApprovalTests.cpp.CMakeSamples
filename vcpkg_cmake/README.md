@@ -43,14 +43,14 @@ cmake_minimum_required(VERSION 3.11)
 
 include(FetchContent)
 FetchContent_Declare(
-  vcpkg
-  GIT_REPOSITORY https://github.com/microsoft/vcpkg
-  GIT_TAG b295670e4bab14debe88d92cd5364b21ce26232c # 2021-09-09
+        vcpkg
+        GIT_REPOSITORY https://github.com/microsoft/vcpkg
+        GIT_TAG b295670e4bab14debe88d92cd5364b21ce26232c # 2021-09-09
 )
-if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
-  FetchContent_Populate(vcpkg)
-  set(CMAKE_TOOLCHAIN_FILE "${vcpkg_SOURCE_DIR}/scripts/buildsystems/vcpkg.cmake")
-endif()
+if (NOT DEFINED CMAKE_TOOLCHAIN_FILE)
+    FetchContent_Populate(vcpkg)
+    set(CMAKE_TOOLCHAIN_FILE "${vcpkg_SOURCE_DIR}/scripts/buildsystems/vcpkg.cmake")
+endif ()
 
 project(vcpkg_cmake CXX)
 
@@ -67,26 +67,27 @@ And the CMakeLists.txt that builds the tests is:
 
 ```cmake
 add_executable(tests
-  main.cpp
-  tests.cpp
-)
+        main.cpp
+        tests.cpp
+        )
 
 find_path(approvaltests.cpp_INCLUDE_DIR
-  NAMES "ApprovalTests.hpp")
-find_package(Catch2 REQUIRED)
+        NAMES "ApprovalTests.hpp")
 target_include_directories(tests
-  PRIVATE "${approvaltests.cpp_INCLUDE_DIR}"
-)
+        PRIVATE "${approvaltests.cpp_INCLUDE_DIR}"
+        )
+
+find_package(Catch2 REQUIRED)
 target_link_libraries(tests
-  PRIVATE Catch2::Catch2
-)
+        PRIVATE Catch2::Catch2
+        )
 
 target_compile_features(tests PUBLIC cxx_std_11)
 set_target_properties(tests PROPERTIES CXX_EXTENSIONS OFF)
 
 add_test(
-  NAME tests
-  COMMAND tests
+        NAME tests
+        COMMAND tests
 )
 ```
 <sup><a href='https://github.com/claremacrae/ApprovalTests.cpp.CMakeSamples/blob/main/./vcpkg_cmake/tests/CMakeLists.txt' title='File snippet was copied from'>snippet source</a></sup>
