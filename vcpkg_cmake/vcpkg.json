@@ -1,0 +1,8 @@
+{
+  "name": "approval-tests-vcpkg-cmake",
+  "version": "0",
+  "dependencies": [
+    "catch2",
+    "approval-tests-cpp"
+  ]
+}
