@@ -42,6 +42,7 @@ include(FetchContent)
 # -------------------------------------------------------------------
 # Program Version Numbers - and/or commit IDs
 
+# TODO Update these notes for sunsetting of bintray
 # Oldest Boost in dl.bintray.com is 1.63.0
 # Tested with versions in range: 1.63.0 ... 1.74.0
 # NOTE: With gcc, and Boost 1.73.0, 1.74.0 and 1.75.0, tests in the following directory
@@ -66,10 +67,14 @@ set(DocTestVersion
 
 # Tested with versions in range: 6.0.0 ... 7.1.2
 set(FmtVersion
-        "master")
+        "7.1.3")
 
 # Tested with versions in range: release-1.8.0 ... release-1.10.0
 set(GoogleTestVersion
+        "master")
+
+# Tested with v1.5.4
+set(GulrakFileSystemVersion
         "master")
 
 # Tested with versions in range: 1.1.7 ... 1.1.8
@@ -82,7 +87,7 @@ message(NOTICE "Fetching Boost...")
 string(REPLACE . _ BoostVersionUnderscored ${BoostVersion})
 FetchContent_Declare(
         Boost
-        URL https://dl.bintray.com/boostorg/release/${BoostVersion}/source/boost_${BoostVersionUnderscored}.tar.gz
+        URL https://boostorg.jfrog.io/artifactory/main/release/${BoostVersion}/source/boost_${BoostVersionUnderscored}.tar.gz
 )
 FetchContent_MakeAvailable(Boost)
 # This is needed because there is not a CMakeLists.txt in the Boost download,
@@ -135,6 +140,7 @@ FetchContent_Declare(fmt
 FetchContent_MakeAvailable(fmt)
 
 # -------------------------------------------------------------------
+# googletest
 message(NOTICE "Fetching googletest...")
 # GoogleTest
 # Prevent GoogleTest from overriding our compiler/linker options
@@ -144,6 +150,16 @@ FetchContent_Declare(googletest
         GIT_REPOSITORY https://github.com/abseil/googletest.git
         GIT_TAG ${GoogleTestVersion})
 FetchContent_MakeAvailable(googletest)
+
+# -------------------------------------------------------------------
+# gulrak's filesystem
+message(NOTICE "Fetching gulrak's filesystem...")
+FetchContent_Declare(
+        filesystem
+        GIT_REPOSITORY  https://github.com/gulrak/filesystem.git
+        GIT_TAG         ${GulrakFileSystemVersion}
+)
+FetchContent_MakeAvailable(filesystem)
 
 # -------------------------------------------------------------------
 # Boost.ut
@@ -156,9 +172,13 @@ FetchContent_Declare(boost.ut
         GIT_TAG ${UtVersion})
 FetchContent_MakeAvailable(boost.ut)
 
+if(TARGET Boost::ut)
+    add_library(boost.ut ALIAS ut)
+endif()
+
 if ("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
     # Turn off some checks off for boost.ut
-    target_compile_options(boost.ut INTERFACE
+    target_compile_options(ut INTERFACE
             -Wno-c99-extensions # Needed for Boost.ut, at least in v1.1.6
             -Wno-documentation-unknown-command # unknown command tag name \userguide
             -Wno-weak-vtables
