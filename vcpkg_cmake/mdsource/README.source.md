@@ -14,6 +14,6 @@ And the CMakeLists.txt that builds the tests is:
 
 include: inc_vcpkg_cmake_tests_cmakelists
 
-The build script is:
+The build script - which notably contains no vcpkg-specific commands - is:
 
 include: inc_vcpkg_cmake_build

@@ -93,7 +93,7 @@ add_test(
 <sup><a href='https://github.com/claremacrae/ApprovalTests.cpp.CMakeSamples/blob/main/./vcpkg_cmake/tests/CMakeLists.txt' title='File snippet was copied from'>snippet source</a></sup>
  <!-- endInclude -->
 
-The build script is:
+The build script - which notably contains no vcpkg-specific commands - is:
 
  <!-- include: inc_vcpkg_cmake_build. path: /vcpkg_cmake/mdsource/inc_vcpkg_cmake_build.include.md -->
 
