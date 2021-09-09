@@ -247,6 +247,12 @@ jobs:
           python-version: '3.x'
       - uses: ./.github/actions/setup-conan
 
+      - name: Build vcpkg_cmake
+        shell: bash
+        run: |
+          cd vcpkg_cmake
+          ./build.sh
+
       - name: Build cmake_invoking_conan
         shell: bash
         run: |
