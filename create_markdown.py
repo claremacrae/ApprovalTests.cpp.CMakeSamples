@@ -36,6 +36,8 @@ def is_wanted_file(file):
         return True
     if file == 'build.sh':
         return True
+    if file == 'vcpkg.json':
+        return True
     return False
 
 
@@ -43,6 +45,8 @@ def get_syntax_name(file_base_name, file_extension):
     print(file_base_name, file_extension)
     if file_extension == ".sh":
         return 'bash'
+    if file_extension == ".json":
+        return 'json'
     if file_base_name == 'CMakeLists' or file_extension == ".cmake":
         return 'cmake'
     return ''

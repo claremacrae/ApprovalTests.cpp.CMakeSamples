@@ -21,7 +21,20 @@ To change this file edit the source file and then execute ./run_markdown_templat
 
 The vcpkg.json file is:
 
-**TODO**
+ <!-- include: inc_vcpkg_cmake_vcpkg. path: /vcpkg_cmake/mdsource/inc_vcpkg_cmake_vcpkg.include.md -->
+
+```json
+{
+  "name": "approval-tests-vcpkg-cmake",
+  "version": "0",
+  "dependencies": [
+    "catch2",
+    "approval-tests-cpp"
+  ]
+}
+```
+<sup><a href='https://github.com/claremacrae/ApprovalTests.cpp.CMakeSamples/blob/main/./vcpkg_cmake/vcpkg.json' title='File snippet was copied from'>snippet source</a></sup>
+ <!-- endInclude -->
 
 The top-level CMakeLists.txt file is:
 

@@ -4,7 +4,7 @@ include: vcpkg_cmake
 
 The vcpkg.json file is:
 
-**TODO**
+include: inc_vcpkg_cmake_vcpkg
 
 The top-level CMakeLists.txt file is:
 
