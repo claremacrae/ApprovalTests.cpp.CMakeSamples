@@ -2,11 +2,11 @@
 
 include: vcpkg_cmake
 
-The vcpkg.json file is:
+The vcpkg.json manifest file, which states dependencies, is:
 
 include: inc_vcpkg_cmake_vcpkg
 
-The top-level CMakeLists.txt file is:
+The top-level CMakeLists.txt file, which clones and builds vcpkg, is:
 
 include: inc_vcpkg_cmake_cmakelists
 

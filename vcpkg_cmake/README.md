@@ -17,7 +17,7 @@ To change this file edit the source file and then execute ./run_markdown_templat
 | More Detail  | See [ApprovalTests.cpp Vcpkg Integration docs](https://github.com/approvals/ApprovalTests.cpp/blob/master/doc/VcpkgIntegration.md#top) - TODO Update that page to add descriptive info for this example|
  <!-- endInclude -->
 
-The vcpkg.json file is:
+The vcpkg.json manifest file, which states dependencies, is:
 
  <!-- include: inc_vcpkg_cmake_vcpkg. path: /vcpkg_cmake/mdsource/inc_vcpkg_cmake_vcpkg.include.md -->
 
@@ -34,7 +34,7 @@ The vcpkg.json file is:
 <sup><a href='https://github.com/claremacrae/ApprovalTests.cpp.CMakeSamples/blob/main/./vcpkg_cmake/vcpkg.json' title='File snippet was copied from'>snippet source</a></sup>
  <!-- endInclude -->
 
-The top-level CMakeLists.txt file is:
+The top-level CMakeLists.txt file, which clones and builds vcpkg, is:
 
  <!-- include: inc_vcpkg_cmake_cmakelists. path: /vcpkg_cmake/mdsource/inc_vcpkg_cmake_cmakelists.include.md -->
 
