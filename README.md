@@ -18,6 +18,8 @@ To change this file edit the source file and then execute ./run_markdown_templat
     * [conan_cmake_find_package](#conan_cmake_find_package)
     * [conan_cmake](#conan_cmake)
     * [cmake_invoking_conan](#cmake_invoking_conan)
+  * [Using ApprovalTests.cpp with CMake and vcpkg](#using-approvaltestscpp-with-cmake-and-vcpkg)
+    * [vcpkg_cmake](#vcpkg_cmake)
   * [Developing ApprovalTests.cpp with CMake](#developing-approvaltestscpp-with-cmake)
     * [dev_approvals](#dev_approvals)
     * [dev_approvals_fetch_content](#dev_approvals_fetch_content)<!-- endToc -->
@@ -100,6 +102,22 @@ CMake code for various scenarios, for including in the ApprovalTests.cpp cmake d
 | Dependencies | ApprovalTests.cpp - downloaded automatically by CMake invoking Conan<br/>Catch2 - downloaded automatically by CMake invoking Conan |
 | Mechanism    | Uses the [cmake-conan](https://github.com/conan-io/cmake-conan) CMake module to invoke Conan automatically from within CMake. |
 | More Detail  | See [Example 3. Making CMake invoke Conan](https://github.com/approvals/ApprovalTests.cpp/blob/master/doc/ConanIntegration.md#example-3-making-cmake-invoke-conan) |
+ <!-- endInclude -->
+
+## Using ApprovalTests.cpp with CMake and vcpkg
+
+### vcpkg_cmake
+
+ <!-- include: vcpkg_cmake. path: /vcpkg_cmake/mdsource/vcpkg_cmake.include.md -->
+**TODO** Update this for vcpkg
+
+| Topic        | Detail                                                       |
+| ------------ | ------------------------------------------------------------ |
+| Directory    | [vcpkg_cmake](/vcpkg_cmake/)                                 |
+| Purpose      | Demo how to build your tests using Conan's `cmake`  generator to download single headers for specific releases of ApprovalTests.cpp and Catch2.<br />The released headers of those dependencies will be downloaded inside your CMake build space, and will not be shown inside your IDE. |
+| Dependencies | ApprovalTests.cpp - downloaded automatically by Conan<br/>Catch2 - downloaded automatically by Conan |
+| Mechanism    | Uses Conan's [`cmake`](https://docs.conan.io/en/latest/integrations/build_system/cmake/cmake_generator.html) generator. |
+| More Detail  | See [Example 2. Using Conan's cmake generator](https://github.com/approvals/ApprovalTests.cpp/blob/master/doc/ConanIntegration.md#example-2-using-conans-cmake-generator) |
  <!-- endInclude -->
 
 ## Developing ApprovalTests.cpp with CMake

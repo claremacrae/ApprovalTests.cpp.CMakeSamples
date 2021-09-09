@@ -34,6 +34,12 @@ include: conan_cmake
 
 include: cmake_invoking_conan
 
+## Using ApprovalTests.cpp with CMake and vcpkg
+
+### vcpkg_cmake
+
+include: vcpkg_cmake
+
 ## Developing ApprovalTests.cpp with CMake
 
 ### dev_approvals
