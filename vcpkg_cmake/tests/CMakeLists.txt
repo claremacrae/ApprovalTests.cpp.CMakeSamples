@@ -5,10 +5,11 @@ add_executable(tests
 
 find_path(approvaltests.cpp_INCLUDE_DIR
         NAMES "ApprovalTests.hpp")
-find_package(Catch2 REQUIRED)
 target_include_directories(tests
         PRIVATE "${approvaltests.cpp_INCLUDE_DIR}"
         )
+
+find_package(Catch2 REQUIRED)
 target_link_libraries(tests
         PRIVATE Catch2::Catch2
         )
