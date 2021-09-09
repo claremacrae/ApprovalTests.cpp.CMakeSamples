@@ -1,19 +1,19 @@
-# conan_cmake
+# vcpkg_cmake
 
-include: conan_cmake
+include: vcpkg_cmake
 
-The conanfile.txt file is:
+The vcpkg.json file is:
 
-include: inc_conan_cmake_conanfile
+**TODO**
 
 The top-level CMakeLists.txt file is:
 
-include: inc_conan_cmake_cmakelists
+include: inc_vcpkg_cmake_cmakelists
 
 And the CMakeLists.txt that builds the tests is:
 
-include: inc_conan_cmake_tests_cmakelists
+include: inc_vcpkg_cmake_tests_cmakelists
 
 The build script is:
 
-include: inc_conan_cmake_build
+include: inc_vcpkg_cmake_build
