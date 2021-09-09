@@ -1,11 +1,9 @@
 
-**TODO** Update this for vcpkg
-
 | Topic        | Detail                                                       |
 | ------------ | ------------------------------------------------------------ |
 | Directory    | [vcpkg_cmake](/vcpkg_cmake/)                                 |
-| Purpose      | Demo how to build your tests using Conan's `cmake`  generator to download single headers for specific releases of ApprovalTests.cpp and Catch2.<br />The released headers of those dependencies will be downloaded inside your CMake build space, and will not be shown inside your IDE. |
-| Dependencies | ApprovalTests.cpp - downloaded automatically by Conan<br/>Catch2 - downloaded automatically by Conan |
-| Mechanism    | Uses Conan's [`cmake`](https://docs.conan.io/en/latest/integrations/build_system/cmake/cmake_generator.html) generator. |
-| More Detail  | See [Example 2. Using Conan's cmake generator](https://github.com/approvals/ApprovalTests.cpp/blob/master/doc/ConanIntegration.md#example-2-using-conans-cmake-generator) |
+| Purpose      | Demo how to build your tests using vcpkg to obtain Catch2 and ApprovalTests.cpp.<p />Vcpkg is obtained automatically via `FetchContent()` in the top level CMakeLists.txt, and built inside your CMake build space.<br /><p />The first time this is run in any given build space, there is a significant wait, but subsequent runs are much faster.<p />If you have multiple build spaces, vcpkg will be cloned and built multiple times, so this may be best used when you are only building one or two configurations.|
+| Dependencies | ApprovalTests.cpp - obtained automatically by vcpkg<br/>Catch2 - obtained automatically by vcpkg |
+| Mechanism    | Uses CMake's `FetchContent()` to obtain and build a specific version of vcpkg inside the build space.<p />Uses vcpkg's [manifest mode](https://vcpkg.readthedocs.io/en/latest/users/manifests/) to specify the dependencies. |
+| More Detail  | See [ApprovalTests.cpp Vcpkg Integration docs](https://github.com/approvals/ApprovalTests.cpp/blob/master/doc/VcpkgIntegration.md#top) - TODO Update that page to add descriptive info for this example|
 
