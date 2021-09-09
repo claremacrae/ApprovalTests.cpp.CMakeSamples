@@ -4,10 +4,8 @@
 set -e
 set -o pipefail
 
-scriptdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-srcdir="$scriptdir"
-builddir="$scriptdir/build"
-
-cmake -DCMAKE_BUILD_TYPE=Debug -B "$builddir" -S "$srcdir"
-cmake --build "$builddir"
-ctest --output-on-failure "$builddir" -C Debug
+mkdir -p build
+cd       build
+cmake -DCMAKE_BUILD_TYPE=Debug ..
+cmake --build .
+ctest --output-on-failure . -C Debug
