@@ -47,7 +47,7 @@ set(FmtVersion
 
 # Tested with versions in range: release-1.8.0 ... release-1.10.0
 set(GoogleTestVersion
-        "master")
+        "main")
 
 # Tested with v1.5.4
 set(GulrakFileSystemVersion
