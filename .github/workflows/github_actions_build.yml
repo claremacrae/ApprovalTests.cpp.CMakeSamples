@@ -185,7 +185,7 @@ jobs:
       - name: set up python
         uses: actions/setup-python@v1
         with:
-          python-version: '3.x'
+          python-version: '3.11'
       - uses: ./.github/actions/setup-conan
 
       - name: Build cmake_invoking_conan
@@ -257,7 +257,7 @@ jobs:
       - name: set up python
         uses: actions/setup-python@v1
         with:
-          python-version: '3.x'
+          python-version: '3.11'
       - uses: ./.github/actions/setup-conan
 
       - name: Build vcpkg_cmake
