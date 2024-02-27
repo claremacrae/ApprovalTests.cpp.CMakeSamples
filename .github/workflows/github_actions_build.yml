@@ -93,7 +93,7 @@ jobs:
       - name: set up python
         uses: actions/setup-python@v1
         with:
-          python-version: '3.x'
+          python-version: '3.11'
       - uses: ./.github/actions/setup-conan
       - name: adjust conan profile to use new ABI for gcc (see issue #1)
         if: contains(matrix.job-name, 'gcc')
